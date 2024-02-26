@@ -1,0 +1,5 @@
+lalaku\com\guihome\utils\HomeUtils.class
+lalaku\com\guihome\commands\HomeTab.class
+lalaku\com\guihome\listeners\HomeListener.class
+lalaku\com\guihome\commands\HomeCommand.class
+lalaku\com\guihome\GUIHome.class

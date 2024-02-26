@@ -1,0 +1,7 @@
+name: GUIHome
+version: '1.0'
+main: lalaku.com.guihome.GUIHome
+api-version: '1.20'
+author: [ lalaku ]
+commands:
+  home:
