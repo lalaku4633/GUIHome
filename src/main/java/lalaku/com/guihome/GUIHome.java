@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
 
 public final class GUIHome extends JavaPlugin {
 
@@ -27,14 +28,18 @@ public final class GUIHome extends JavaPlugin {
         try {
             initiateFile("homes.yml");
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
-    public void initiateFile (String name) throws Exception {
+    public void initiateFile(String name) throws Exception {
         File file = new File(getDataFolder(), name);
         if (!file.exists()) {
-            file.createNewFile();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

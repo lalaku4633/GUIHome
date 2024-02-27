@@ -15,7 +15,6 @@ import java.util.Map;
 
 import static lalaku.com.guihome.GUIHome.homePl;
 import static lalaku.com.guihome.commands.HomeCommand.MAX_HOME;
-import static lalaku.com.guihome.utils.HomeUtils.numOfHome;
 
 public class HomeListener implements Listener {
     public static Map<String, Integer> isSettingLore = new HashMap<String, Integer>();
@@ -59,7 +58,8 @@ public class HomeListener implements Listener {
             if (slot == 1) {
                 if (e.getCurrentItem().getType() == Material.LIME_WOOL) {
                     player.playSound(player.getLocation(), Sound.BLOCK_WOODEN_BUTTON_CLICK_ON, 1.0F, 1.0F);
-                    homeUtils.deleteHome(player, numOfHome);
+                    int n = Integer.parseInt(e.getInventory().getItem(1).getItemMeta().getLocalizedName());
+                    homeUtils.deleteHome(player, n);
                     homeUtils.homeInv(player);
                 }
             }

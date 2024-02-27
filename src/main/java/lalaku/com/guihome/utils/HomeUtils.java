@@ -12,7 +12,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.UUID;
 
 import static lalaku.com.guihome.GUIHome.getInstance;
@@ -21,7 +20,6 @@ import static lalaku.com.guihome.GUIHome.homePl;
 
 public class HomeUtils {
 
-    public static int  numOfHome = 0;
 
     private File getFile() {
         return new File("plugins/GUIHome/homes.yml");
@@ -165,6 +163,7 @@ public class HomeUtils {
         ItemMeta yesMeta = yes.getItemMeta();
         yesMeta.setDisplayName(ChatColor.BOLD + ChatColor.GREEN.toString() + "削除する");
         yesMeta.setLore(Arrays.asList(ChatColor.GRAY + "クリックで削除してHomeGUIに戻る"));
+        yesMeta.setLocalizedName(n + "");
         yes.setItemMeta(yesMeta);
 
         ItemStack no = new ItemStack(Material.RED_WOOL);
@@ -176,7 +175,6 @@ public class HomeUtils {
         inv.setItem(1, yes);
         inv.setItem(3, no);
 
-        numOfHome = n;
         player.openInventory(inv);
         player.playSound(player.getLocation(), Sound.BLOCK_WOODEN_BUTTON_CLICK_ON, 1.0F, 1.0F);
     }

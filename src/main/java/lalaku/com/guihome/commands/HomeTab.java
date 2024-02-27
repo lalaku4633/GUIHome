@@ -21,13 +21,12 @@ public class HomeTab implements TabCompleter {
         if (args.length == 1) {
             return StringUtil.copyPartialMatches(args[0], Arrays.asList("set", "delete", "help"), new ArrayList<>());
         } else if (args.length == 2 && !args[0].equals("help")) {
-            List<String> nums = new ArrayList<>();
-            for (int i = 1; i <=MAX_HOME; i ++) {
-                nums.add(String.valueOf(i));
+            List<String> numOfHome = new ArrayList<>();
+            for (int i = 1; i <= MAX_HOME; i++) {
+                numOfHome.add(String.valueOf(i));
             }
-            return StringUtil.copyPartialMatches(args[1], nums, new ArrayList<>());
+            return StringUtil.copyPartialMatches(args[1], numOfHome, new ArrayList<>());
         }
         return new ArrayList<>();
     }
-
 }
